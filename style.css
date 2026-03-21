@@ -1,0 +1,158 @@
+/* ===== Reset ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ===== Base ===== */
+body {
+    font-family: "Poppins", sans-serif;
+    line-height: 1.5;
+    background: #011627;
+}
+
+/* ===== Layout ===== */
+.layout {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+/* ===== Todo Component ===== */
+.todo {
+    width: 100%;
+    max-width: 540px;
+}
+
+/* ===== App Container ===== */
+.todo__app {
+    background: #fff;
+    border-radius: 10px;
+    padding: 40px 30px 50px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* ===== Title ===== */
+.todo__title {
+    display: flex;
+    align-items: center;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #002765;
+    margin-bottom: 20px;
+}
+
+.todo__icon {
+    width: 30px;
+    margin-left: 10px;
+}
+
+/* ===== Input Row ===== */
+.todo__row {
+    display: flex;
+    align-items: center;
+    background: #edeef0;
+    border-radius: 30px;
+    padding-left: 20px;
+    margin-bottom: 25px;
+}
+
+/* Input */
+.todo__input {
+    flex: 1;
+    border: none;
+    outline: none;
+    background: transparent;
+    padding: 10px;
+    font: inherit;
+}
+
+.todo__input::placeholder {
+    color: #999;
+}
+
+/* Button */
+.todo__button {
+    border: none;
+    outline: none;
+    padding: 14px 40px;
+    background: #ff5945;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 500;
+    border-radius: 40px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.1s ease;
+}
+
+.todo__button:hover {
+    background: #e14b3a;
+    transform: scale(1.03);
+}
+
+.todo__button:active {
+    transform: scale(0.95);
+}
+
+/* List */
+.todo__list {
+    list-style: none;
+}
+
+/* List Item */
+.todo__item {
+    position: relative;
+    font-size: 17px;
+    padding: 12px 8px 12px 50px;
+    cursor: pointer;
+    user-select: none;
+    border-bottom: 1px solid #555;
+    transition: all 0.2s ease;
+}
+
+/* Checkbox icon */
+.todo__item::before {
+    content: "";
+    position: absolute;
+    top: 12px;
+    left: 8px;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background-image: url(images/checked.png);
+    background-size: cover;
+    background-position: center;
+}
+
+/* Checked Stated */
+.todo__item--checked {
+    color: #555;
+    text-decoration: line-through;
+}
+
+.todo__item--checked::before {
+    background-image: url(images/checked.png);
+}
+
+/* Delete Button */
+.todo__delete {
+    position: absolute;
+    right: 0;
+    top: 5px;
+    width: 40px;
+    height: 40px;
+    font-size: 22px;
+    line-height: 40px;
+    text-align: center;
+    color: #555;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.todo__delete:hover {
+    background: #cdd8ed;
+}
