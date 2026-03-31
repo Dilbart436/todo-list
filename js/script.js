@@ -1,7 +1,8 @@
-// ===== Select Elements =====
+// ==== Elements selection =====
 const inputBox = document.getElementById('input-box');
-const listContainer = document.getElementById('list-container');
 const addBtn = document.querySelector('.todo__button');
+const listContainer = document.getElementById('list-container');
+
 
 // ===== Add Task =====
 const addTask = () => {
@@ -16,12 +17,13 @@ const addTask = () => {
     listContainer.appendChild(li);
 
     inputBox.value = "";
-    inputBox.focus(); // UX improvement
+    inputBox.focus();
 
     saveData();
 };
 
-// ===== Create Task Element =====
+
+// ==== Create Task Element =====
 const createTaskElement = (text) => {
     const li = document.createElement('li');
     li.classList.add('todo__item');
@@ -31,7 +33,7 @@ const createTaskElement = (text) => {
     textSpan.classList.add('todo__text');
     textSpan.textContent = text;
 
-    // Delete button
+    // Delete Button
     const deleteBtn = document.createElement('span');
     deleteBtn.classList.add('todo__delete');
     deleteBtn.textContent = '\u00d7';
@@ -41,6 +43,7 @@ const createTaskElement = (text) => {
 
     return li;
 };
+
 
 // ===== Event Delegation =====
 listContainer.addEventListener('click', (event) => {
@@ -59,19 +62,24 @@ listContainer.addEventListener('click', (event) => {
     }
 });
 
+
 // ===== Save Data =====
 const saveData = () => {
     const tasks = [];
 
-    document.querySelectorAll('.todo__item').forEach((item) => {
+    listContainer.querySelectorAll('.todo__item').forEach((item) => {
+        const textElement = item.querySelector('.todo__text');
+        if (!textElement) return;
+
         tasks.push({
-            text: item.querySelector('.todo__text').textContent,
+            text: textElement.textContent,
             completed: item.classList.contains('todo__item--checked'),
         });
     });
 
     localStorage.setItem('tasks', JSON.stringify(tasks));
 };
+
 
 // ===== Load Data =====
 const loadTasks = () => {
@@ -88,6 +96,6 @@ const loadTasks = () => {
     });
 };
 
-// ===== Init =====
+// ==== Init =====
 addBtn.addEventListener('click', addTask);
 loadTasks();

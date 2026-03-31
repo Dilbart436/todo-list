@@ -118,6 +118,10 @@ body {
     transition: all 0.2s ease;
 }
 
+.todo__text {
+    font-weight: 500;
+}
+
 /* Checkbox icon */
 .todo__item::before {
     content: "";
@@ -127,7 +131,7 @@ body {
     width: 28px;
     height: 28px;
     border-radius: 50%;
-    background-image: url(images/checked.png);
+    background-image: url(/assets/images/unchecked.png);
     background-size: cover;
     background-position: center;
 }
@@ -139,7 +143,7 @@ body {
 }
 
 .todo__item--checked::before {
-    background-image: url(images/checked.png);
+    background-image: url(/assets/images/checked.png);
 }
 
 /* Delete Button */
